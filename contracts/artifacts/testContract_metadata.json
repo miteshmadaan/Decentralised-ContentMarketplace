@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.13+commit.abaa5c0e"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -8,9 +8,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
+						"internalType": "string",
+						"name": "userName",
+						"type": "string"
 					}
 				],
 				"name": "addSubscriber",
@@ -23,9 +23,9 @@
 				"name": "author",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "string",
 						"name": "",
-						"type": "address"
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -49,9 +49,34 @@
 				"name": "printSubscribersList",
 				"outputs": [
 					{
-						"internalType": "address[]",
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "addr",
+								"type": "address"
+							}
+						],
+						"internalType": "struct testContract.subscriber[]",
 						"name": "",
-						"type": "address[]"
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "subscriberCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -68,8 +93,13 @@
 				"name": "subscribers",
 				"outputs": [
 					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
 						"internalType": "address",
-						"name": "",
+						"name": "addr",
 						"type": "address"
 					}
 				],
@@ -105,11 +135,11 @@
 	},
 	"sources": {
 		"contracts/myContract.sol": {
-			"keccak256": "0xb59771c77c045778d6b4a39302e7c3a81613ee8b258fbadac4c67ca79935dfcb",
+			"keccak256": "0xdbfb9dc58eac540f0fcc82f8b16ce26220df7b8e672fac3f5ca882687b8bf6d8",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://eb3b4da0ee0fc47a6b7ab0b61a80cfc004f8867558cd13e09398603dc40a5fa3",
-				"dweb:/ipfs/QmUZq72xb2emxQ6dgGKapsYpuKhDu6Yy66KEW5Ng8DSZZ2"
+				"bzz-raw://6b30560727a8f18b907a982f07692921698cbd6548f630b3210b3d3850339051",
+				"dweb:/ipfs/QmetDxiMDG6EZNpQGUi89LmPadRm8pmwTazJjdYzBjNNvm"
 			]
 		}
 	},
