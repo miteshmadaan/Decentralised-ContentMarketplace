@@ -13,10 +13,12 @@ contract testContract {
         address addr;
     }
 
+    address public author;
 
-    string public author;
+    constructor(){
+        author = msg.sender;
+    }
 
-    
     function addSubscriber(string memory userName) public {
         subscribers[subscriberCount] = subscriber(userName,msg.sender);
         subscriberCount++;

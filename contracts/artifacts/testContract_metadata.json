@@ -6,6 +6,11 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -23,9 +28,9 @@
 				"name": "author",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "address",
 						"name": "",
-						"type": "string"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -135,11 +140,11 @@
 	},
 	"sources": {
 		"contracts/myContract.sol": {
-			"keccak256": "0xdbfb9dc58eac540f0fcc82f8b16ce26220df7b8e672fac3f5ca882687b8bf6d8",
+			"keccak256": "0xb7f7ef0fc3d784e64a6f646f4016efeb3eddd4a8ee72901f4fdbb1d2b6b00b73",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6b30560727a8f18b907a982f07692921698cbd6548f630b3210b3d3850339051",
-				"dweb:/ipfs/QmetDxiMDG6EZNpQGUi89LmPadRm8pmwTazJjdYzBjNNvm"
+				"bzz-raw://cec9360fc0d241feb5b1523b4f28ea0779b23904b966d500e0bcab4ff7336f08",
+				"dweb:/ipfs/QmWJJs2JK35EoDd1skrjXMuJ6pEkPhuFPVsDt3z6AeEvHK"
 			]
 		}
 	},
