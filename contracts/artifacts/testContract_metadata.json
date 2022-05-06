@@ -42,25 +42,6 @@
 				"type": "event"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "addr",
-						"type": "address"
-					}
-				],
-				"name": "SubscriberPrint",
-				"type": "event"
-			},
-			{
 				"stateMutability": "payable",
 				"type": "fallback"
 			},
@@ -119,8 +100,26 @@
 			{
 				"inputs": [],
 				"name": "printSubscribersList",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "addr",
+								"type": "address"
+							}
+						],
+						"internalType": "struct testContract.subscriber[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -213,11 +212,11 @@
 	},
 	"sources": {
 		"contracts/myContract.sol": {
-			"keccak256": "0x8876c454b168bf58846c5ef9bfa97364767c5f82ed50179ebdb1c95cf848e20a",
+			"keccak256": "0x1c2c8444d388eef85fd3277aaee7eda68d18296524e999aa0e18680d817324f0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://1b20599a36155daae72b4d10995871c486f0c15a9151bd52ce465b405f635f69",
-				"dweb:/ipfs/QmQeT8BvpqYjp81AntFGdggbyEkXsAA3cpfQ4q9tAZ6mJZ"
+				"bzz-raw://608f698892e3768dd3921f0e640cbd481c7bb836aa7e6881d01399dddc316739",
+				"dweb:/ipfs/QmUwt3WLWVQ6h16cUnuRZDWYXcB4gmq9UFwqcyWDkUhfCb"
 			]
 		}
 	},

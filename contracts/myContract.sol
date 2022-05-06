@@ -16,7 +16,6 @@ contract testContract {
     address payable public author;
     uint public subscriptionFee;
 
-    event SubscriberPrint(string name, address addr);
     event Received(string name, address addr, uint amount);
 
     constructor(uint fee){
@@ -55,12 +54,13 @@ contract testContract {
         payable(author).transfer(address(this).balance);
     }
 
-    function printSubscribersList() public {
-        subscriber memory ret;
+    
+    function printSubscribersList() public view returns(subscriber[]memory){
+        subscriber[] memory ret = new subscriber[](subscriberCount);
         for(uint i = 0; i < subscriberCount; i++){
-            ret = subscribers[i];
-            emit SubscriberPrint(ret.name, ret.addr);
+            ret[i] = subscribers[i];
         }
+        return ret;
     }
 
 }
