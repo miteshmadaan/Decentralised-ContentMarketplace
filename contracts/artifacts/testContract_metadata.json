@@ -9,50 +9,24 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "fee",
+						"name": "_fee",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_channelName",
+						"type": "string"
 					}
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "addr",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Received",
-				"type": "event"
-			},
-			{
 				"stateMutability": "payable",
 				"type": "fallback"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "userName",
-						"type": "string"
-					}
-				],
+				"inputs": [],
 				"name": "addSubscriber",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -60,38 +34,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "author",
+				"name": "channelName",
 				"outputs": [
 					{
-						"internalType": "address payable",
+						"internalType": "string",
 						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getAuthorBalance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getContractBalance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -102,58 +50,9 @@
 				"name": "printSubscribersList",
 				"outputs": [
 					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "name",
-								"type": "string"
-							},
-							{
-								"internalType": "address",
-								"name": "addr",
-								"type": "address"
-							}
-						],
-						"internalType": "struct testContract.subscriber[]",
+						"internalType": "address[]",
 						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "subscriberCount",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "subscribers",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "addr",
-						"type": "address"
+						"type": "address[]"
 					}
 				],
 				"stateMutability": "view",
@@ -212,11 +111,11 @@
 	},
 	"sources": {
 		"contracts/myContract.sol": {
-			"keccak256": "0x1c2c8444d388eef85fd3277aaee7eda68d18296524e999aa0e18680d817324f0",
+			"keccak256": "0xf1b5706670a62f370b491987e5437f2f130e7236a7267d35f9da1297eb41065b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://608f698892e3768dd3921f0e640cbd481c7bb836aa7e6881d01399dddc316739",
-				"dweb:/ipfs/QmUwt3WLWVQ6h16cUnuRZDWYXcB4gmq9UFwqcyWDkUhfCb"
+				"bzz-raw://f76b3461f1737ac27ee97fb88f40ab8bd5691164b1df4aebbbe7fc25bdc07d1a",
+				"dweb:/ipfs/QmRuxyxDEQPrmgzKiKWiNKFtCvne8VhJrbSjSYLmXQc3b9"
 			]
 		}
 	},

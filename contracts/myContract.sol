@@ -5,26 +5,40 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract testContract {
     
-    mapping(uint => subscriber) public subscribers;
-    uint public subscriberCount = 0;
+    mapping(uint => address) private subscribers;
+    uint private subscriberCount = 0;
 
-    struct subscriber {
-        string name;
-        address addr;
-    }
-
-    address payable public author;
+    address payable private author;
     uint public subscriptionFee;
+    string public channelName;
 
-    event Received(string name, address addr, uint amount);
-
-    constructor(uint fee){
-        author = payable(msg.sender);
-        subscriptionFee = fee * 1e18;
+    modifier onlyOwner {
+        require(msg.sender == author, "Only author can call this method!");
+        _;
     }
 
-    function getContractBalance() public view returns (uint){
-        return address(this).balance;
+    constructor(uint _fee, string memory _channelName){
+        author = payable(msg.sender);
+        subscriptionFee = _fee * 1e9;
+        channelName = _channelName;
+    }
+
+    function addSubscriber() public payable{
+        subscribers[subscriberCount] = msg.sender;
+        subscriberCount++;
+        payable(address(this)).transfer(msg.value);
+    }
+
+    function withdrawAmount() payable public onlyOwner{
+        author.transfer(address(this).balance);
+    }
+
+    function printSubscribersList() public onlyOwner view returns(address[] memory){
+        address[] memory ret = new address[](subscriberCount);
+        for(uint i = 0; i < subscriberCount; i++){
+            ret[i] = subscribers[i];
+        }
+        return ret;
     }
 
     fallback() payable external{
@@ -33,34 +47,6 @@ contract testContract {
 
     receive() payable external{
         require( msg.value ==  subscriptionFee , "Payment should be the subscription fee"    );
-        // emit Received(msg.sender, msg.value);
-    }
-
-    function getAuthorBalance() public view returns(uint){
-        return author.balance;
-    }
-
-    function addSubscriber(string memory userName) public payable{
-        subscribers[subscriberCount] = subscriber(userName,msg.sender);
-        subscriberCount++;
-        payable(address(this)).transfer(msg.value);
-        emit Received(userName, msg.sender, msg.value);
-    }
- 
-    function withdrawAmount() payable public{
-        require(
-            msg.sender == author, "Only author can call!"
-        );
-        payable(author).transfer(address(this).balance);
-    }
-
-    
-    function printSubscribersList() public view returns(subscriber[]memory){
-        subscriber[] memory ret = new subscriber[](subscriberCount);
-        for(uint i = 0; i < subscriberCount; i++){
-            ret[i] = subscribers[i];
-        }
-        return ret;
     }
 
 }
