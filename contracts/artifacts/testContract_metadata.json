@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.14+commit.80d49f37"
 	},
 	"language": "Solidity",
 	"output": {
@@ -20,6 +20,37 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "channelName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "articleTitle",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "articleCID",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "articleTimeStamp",
+						"type": "uint256"
+					}
+				],
+				"name": "articlePublished",
+				"type": "event"
 			},
 			{
 				"stateMutability": "payable",
@@ -56,6 +87,24 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_articleTitle",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_articleCID",
+						"type": "string"
+					}
+				],
+				"name": "publishArticle",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -111,11 +160,11 @@
 	},
 	"sources": {
 		"contracts/myContract.sol": {
-			"keccak256": "0xf1b5706670a62f370b491987e5437f2f130e7236a7267d35f9da1297eb41065b",
+			"keccak256": "0x4f24ec0cacf865bf85b846ad7116a320fb6e36e3e5eae9b9903b2f1e274a79c7",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f76b3461f1737ac27ee97fb88f40ab8bd5691164b1df4aebbbe7fc25bdc07d1a",
-				"dweb:/ipfs/QmRuxyxDEQPrmgzKiKWiNKFtCvne8VhJrbSjSYLmXQc3b9"
+				"bzz-raw://9ff670ff977fe7902cbf0e2ed1b43372852fafa88e284d6a0cae99ea06375f2d",
+				"dweb:/ipfs/QmYTnBDjngsvnQFwCwKNmmSbKEEyfAfLeSVTLWycXqiJMM"
 			]
 		}
 	},
