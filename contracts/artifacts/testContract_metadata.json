@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.14+commit.80d49f37"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -25,7 +25,7 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": true,
+						"indexed": false,
 						"internalType": "string",
 						"name": "channelName",
 						"type": "string"
@@ -71,6 +71,73 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_articleNo",
+						"type": "uint256"
+					}
+				],
+				"name": "getArticleInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "articleNo",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "atricleTitle",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "articleCID",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "articleTimeStamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct testContract.articleInfo",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "printArticleCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "printSubscriberCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -160,11 +227,11 @@
 	},
 	"sources": {
 		"contracts/myContract.sol": {
-			"keccak256": "0x4f24ec0cacf865bf85b846ad7116a320fb6e36e3e5eae9b9903b2f1e274a79c7",
+			"keccak256": "0xcf77bd0eeadadfdd726cf9ccc0c4d18d0b08002cb169b2051ae76098b520722b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://9ff670ff977fe7902cbf0e2ed1b43372852fafa88e284d6a0cae99ea06375f2d",
-				"dweb:/ipfs/QmYTnBDjngsvnQFwCwKNmmSbKEEyfAfLeSVTLWycXqiJMM"
+				"bzz-raw://d30ea6fcfdc45932df5e57eca3aa948f647220e400d534028a64c26ecff74408",
+				"dweb:/ipfs/QmS6zoiDVPx8eiRxquMzLseS3XmUQ8fsP74SiZjNkpWxhp"
 			]
 		}
 	},

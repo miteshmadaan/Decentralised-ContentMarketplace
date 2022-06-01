@@ -15,7 +15,7 @@ contract testContract {
         uint256 articleTimeStamp;
     }
 
-    mapping(uint256 => articleInfo) private articles;
+    mapping(uint256 => articleInfo) private articleHistory;
     uint256 private articleCount;
 
     address payable private author;
@@ -29,7 +29,7 @@ contract testContract {
         _;
     }
 
-    event articlePublished(string indexed channelName, string articleTitle, string articleCID, uint256 articleTimeStamp);
+    event articlePublished(string channelName, string articleTitle, string articleCID, uint256 articleTimeStamp);
 
     constructor(uint _fee, string memory _channelName){
         author = payable(msg.sender);
@@ -49,6 +49,20 @@ contract testContract {
         author.transfer(address(this).balance);
     }
 
+    function getArticleInfo(uint256 _articleNo) public view returns (articleInfo memory){
+        require(_articleNo < articleCount, "Not a valid article No.");
+        articleInfo memory ret = articleHistory[_articleNo];
+        return ret;
+    }
+
+    function printSubscriberCount() public view returns(uint256){
+        return subscriberCount;
+    }
+
+    function printArticleCount() public view returns(uint256){
+        return articleCount;
+    }
+
     function printSubscribersList() public onlyOwner view returns(address[] memory){
         address[] memory ret = new address[](subscriberCount);
         for(uint i = 0; i < subscriberCount; i++){
@@ -58,7 +72,7 @@ contract testContract {
     }
 
     function publishArticle(string memory _articleTitle, string memory _articleCID) payable public onlyOwner {
-        articles[articleCount] =  articleInfo(articleCount, _articleTitle, _articleCID, block.timestamp);
+        articleHistory[articleCount] =  articleInfo(articleCount, _articleTitle, _articleCID, block.timestamp);
         articleCount++;
 
         emit articlePublished(channelName, _articleTitle, _articleCID, block.timestamp);
